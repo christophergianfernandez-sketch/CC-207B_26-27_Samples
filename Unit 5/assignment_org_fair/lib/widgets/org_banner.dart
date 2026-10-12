@@ -12,9 +12,9 @@ class OrgBanner extends StatelessWidget {
   final Org org;
 
   Widget _placeholder(BuildContext context, IconData icon) => ColoredBox(
-        color: Theme.of(context).colorScheme.primaryContainer,
-        child: Center(child: Icon(icon, size: 48)),
-      );
+    color: Theme.of(context).colorScheme.primaryContainer,
+    child: Center(child: Icon(icon, size: 48)),
+  );
 
   @override
   Widget build(BuildContext context) {

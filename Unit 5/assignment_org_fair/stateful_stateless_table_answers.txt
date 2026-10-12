@@ -1,0 +1,9 @@
+Feature | Widget(s) used | Stateless or Stateful? | Why?
+--------------------------------------------------------------------------------
+Org list or grid | OrgListScreen, ListView.builder / GridView.builder | Stateful | OrgListScreen stores changing values like _query, _hiddenIds, _favoriteIds, and _registrations, and uses setState() to rebuild when the user searches, hides, favorites, or joins.
+
+Favorite star | OrgCard, Icon(Icons.star / Icons.star_border) | Stateless | OrgCard itself does not hold state. It receives isFavorite from the parent, and the parent (OrgListScreen) updates that value through setState() after a long press.
+
+Banner image | OrgBanner, Image.network(...) | Stateless | OrgBanner only receives org data and decides how to display it. It does not keep custom mutable state; it delegates loading/error behavior to Image.network, which handles those states internally.
+
+Submit button | JoinFormScreen, FilledButton / onPressed: _agreed ? _submit : null | Stateful | The button behavior depends on state values such as _agreed and the form data. The surrounding screen is a StatefulWidget because it keeps those values and validates them with setState() and FormState.
